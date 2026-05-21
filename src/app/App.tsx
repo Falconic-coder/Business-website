@@ -264,7 +264,7 @@ export default function App() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="b.jpg"
+                src="https://images.unsplash.com/photo-1771922748624-b205cf5d002d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwZGVzaWduJTIwbW9ja3VwJTIwbGFwdG9wJTIwd2Vic2l0ZSUyMGludGVyZmFjZXxlbnwxfHx8fDE3Nzg0MTMwNDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
                 alt="Web Design Workspace"
                 className="w-full h-auto"
               />
