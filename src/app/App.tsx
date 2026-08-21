@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Menu, X, Send, CheckCircle, Code, Palette, TrendingUp } from 'lucide-react';
 import backgroundImage from '../imports/_blue__beach__ocean.jpg';
+import computerImage from './computer.jpg';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -294,7 +295,7 @@ export default function App() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="src/app/computer.jpg"
+                src={computerImage}
                 alt="Web Design Workspace"
                 className="w-full h-auto"
               />
