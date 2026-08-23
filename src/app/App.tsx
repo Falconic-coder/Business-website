@@ -13,6 +13,7 @@ export default function App() {
   const [formErrors, setFormErrors] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [isPricingFullscreen, setIsPricingFullscreen] = useState(false);
 
   // Set page title and meta tags
   useEffect(() => {
@@ -491,7 +492,7 @@ export default function App() {
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img
                     src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(project.url)}?w=800&h=600`}
-                    alt="Website preview"
+                    alt="Project website preview"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/10 transition-colors" />
@@ -517,9 +518,35 @@ export default function App() {
           <img
             src={pricingImage}
             alt="Website Designing Pricing Options"
-            className="w-full h-auto rounded-2xl shadow-xl"
+            onClick={() => setIsPricingFullscreen(true)}
+            className="w-full h-auto rounded-2xl shadow-xl cursor-zoom-in hover:opacity-95 transition-opacity"
           />
+          <p className="text-sm text-gray-500 mt-3">Tap the image to view full screen</p>
         </motion.div>
+
+        {isPricingFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsPricingFullscreen(false)}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <button
+              onClick={() => setIsPricingFullscreen(false)}
+              className="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+              aria-label="Close fullscreen image"
+            >
+              <X size={28} />
+            </button>
+            <img
+              src={pricingImage}
+              alt="Website Designing Pricing Options"
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </motion.div>
+        )}
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -662,8 +689,10 @@ export default function App() {
               <h5 className="font-semibold mb-4">Connect</h5>
               <ul className="space-y-2 text-sm text-blue-200">
                 <li className="hover:text-white cursor-pointer transition">webstudioshr@gmail.com</li>
-                <li className="hover:text-white cursor-pointer transition">Instagram: hr_webstudio</li>
-                <li className="hover:text-white cursor-pointer transition">Facebook: hr_webstudio</li>
+                <li className="hover:text-white cursor-pointer transition"><a href="https://www.instagram.com/hr_webstudio?igsi=MXJmcHg2amlzM2doZA==">Instagram</a></li>
+                <li className="hover:text-white cursor-pointer transition"><a href="https://www.facebook.com/profile.php?id=61590342084503&mibextid=wwXIfr">Facebook</a></li>
+                <li className="hover:text-white cursor-pointer transition"><a href="http://www.linkedin.com/in/hrwebstudio">LinkedIn</a></li>
+
               </ul>
             </div>
           </div>
