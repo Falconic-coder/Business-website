@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Menu, X, Send, CheckCircle, Code, Palette, TrendingUp } from 'lucide-react';
 import backgroundImage from '../imports/_blue__beach__ocean.jpg';
 import computerImage from './computer.jpg';
+import pricingImage from './pricing.jpeg';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -441,37 +442,84 @@ export default function App() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="bg-white py-20 px-8">
-        <div className="max-w-6xl mx-auto">
+      <section id="portfolio" className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-8 text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center"
           >
             <h3 className="text-4xl font-bold text-blue-700 mb-4">Our Work</h3>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-12">
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Successful projects we've delivered for business organizations
             </p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block px-12 py-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl border-2 border-blue-200"
-            >
-              <div className="text-6xl font-bold text-blue-600 mb-4">Coming Soon</div>
-              <p className="text-gray-600 text-lg">
-                We're currently working on amazing projects. Check back soon to see our portfolio!
-              </p>
-            </motion.div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="w-full bg-gradient-to-br from-blue-600 to-blue-800 py-16 px-6 md:px-12"
+        >
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            {[
+              {
+                url: 'https://hrwebstudio01.my.canva.site/',
+              },
+              {
+                url: 'https://hrwebstudio01.my.canva.site/02',
+              },
+              {
+                url: 'https://hrwebstudio01.my.canva.site/03',
+              },
+            ].map((project, index) => (
+              <motion.a
+                key={index}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+                className="group block bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow"
+              >
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <img
+                    src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(project.url)}?w=800&h=600`}
+                    alt="Website preview"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/10 transition-colors" />
+                </div>
+                <div className="p-5 text-left">
+                  <p className="text-sm text-gray-500 mt-1">Click to view live site</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* Contact */}
       <section id="contact" className="py-20 px-8 text-center bg-gradient-to-b from-white to-blue-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <img
+            src={pricingImage}
+            alt="Website Designing Pricing Options"
+            className="w-full h-auto rounded-2xl shadow-xl"
+          />
+        </motion.div>
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
